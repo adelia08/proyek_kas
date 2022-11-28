@@ -302,69 +302,38 @@ include "inc/rupiah.php";
 								include "admin/pengguna/del_pengguna.php";
 								break;
 
-								//Masjid in
+								//Satibi in
 							case 'i_data_km':
-								include "bendahara/masjid/in/data_kas.php";
+								include "bendahara/satibi/in/data_kas.php";
 								break;
 							case 'i_add_km':
-								include "bendahara/masjid/in/add_kas.php";
+								include "bendahara/satibi/in/add_kas.php";
 								break;
 							case 'i_edit_km':
-								include "bendahara/masjid/in/edit_kas.php";
+								include "bendahara/satibi/in/edit_kas.php";
 								break;
 							case 'i_del_km':
-								include "bendahara/masjid/in/del_kas.php";
+								include "bendahara/satibi/in/del_kas.php";
 								break;
 
-								//Masjid out
+								//Satibi out
 							case 'o_data_km':
-								include "bendahara/masjid/out/data_kas.php";
+								include "bendahara/satibi/out/data_kas.php";
 								break;
 							case 'o_add_km':
-								include "bendahara/masjid/out/add_kas.php";
+								include "bendahara/satibi/out/add_kas.php";
 								break;
 							case 'o_edit_km':
-								include "bendahara/masjid/out/edit_kas.php";
+								include "bendahara/satibi/out/edit_kas.php";
 								break;
 							case 'o_del_km':
-								include "bendahara/masjid/out/del_kas.php";
+								include "bendahara/satibi/out/del_kas.php";
 								break;
 
 							case 'rekap_km':
-								include "bendahara/masjid/rekap_kas.php";
+								include "bendahara/satibi/rekap_kas.php";
 								break;
 
-								//sos in
-							case 'i_data_ks':
-								include "bendahara/sosial/in/data_kas.php";
-								break;
-							case 'i_add_ks':
-								include "bendahara/sosial/in/add_kas.php";
-								break;
-							case 'i_edit_ks':
-								include "bendahara/sosial/in/edit_kas.php";
-								break;
-							case 'i_del_ks':
-								include "bendahara/sosial/in/del_kas.php";
-								break;
-
-								//sos out
-							case 'o_data_ks':
-								include "bendahara/sosial/out/data_kas.php";
-								break;
-							case 'o_add_ks':
-								include "bendahara/sosial/out/add_kas.php";
-								break;
-							case 'o_edit_ks':
-								include "bendahara/sosial/out/edit_kas.php";
-								break;
-							case 'o_del_ks':
-								include "bendahara/sosial/out/del_kas.php";
-								break;
-
-							case 'rekap_ks':
-								include "bendahara/sosial/rekap_kas.php";
-								break;
 
 								//lap kas mas
 							case 'lap_satibi':

@@ -5,6 +5,13 @@ while ($data = $sql->fetch_assoc()) {
 }
 ?>
 
+<!-- <?php
+		$sql = $koneksi->query("SELECT cost from kas_satibi");
+		while ($data = $sql->fetch_assoc()) {
+			$cost = $data['cost'];
+		}
+		?> -->
+
 <?php
 $sql = $koneksi->query("SELECT SUM(keluar) as tot_keluar  from kas_satibi where jenis='Keluar'");
 while ($data = $sql->fetch_assoc()) {
@@ -19,7 +26,10 @@ while ($data = $sql->fetch_assoc()) {
 	</h5>
 	<h5>Pemasukan :
 		<?php
+		// $masuk_total = $masuk - $cost;
+		// echo rupiah($masuk_total);
 		echo rupiah($masuk);
+
 		?>
 	</h5>
 
@@ -78,6 +88,8 @@ while ($data = $sql->fetch_assoc()) {
 								<?php echo $data['uraian_km']; ?>
 							</td>
 							<td align="right">
+
+								<!-- //ATURAN MASU TOTAL = MASUK - COST -->
 								<?php echo rupiah($data['masuk']); ?>
 							</td>
 							<td align="right">
