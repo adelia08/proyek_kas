@@ -8,7 +8,7 @@
 	<div class="card-body">
 		<div class="table-responsive">
 			<div>
-				<a href="?page=i_add_inven" class="btn btn-primary">
+				<a href="?page=Inven/data_inventory" class="btn btn-primary">
 					<i class="fa fa-edit"></i> Tambah Data</a>
 			</div>
 			<br>
@@ -56,10 +56,10 @@
 
 
 							<td>
-								<a href="?page=i_edit_inven&kode=<?php echo $data['no_produksi']; ?>" title="Ubah" class="btn btn-success btn-sm">
+								<a href="?page=Inven/edit_inventory&kode=<?php echo $data['no_produksi']; ?>" title="Ubah" class="btn btn-success btn-sm">
 									<i class="fa fa-edit"></i>
 								</a>
-								<a href="?page=i_del_inven&kode=<?php echo $data['no_produksi']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')" title="Hapus" class="btn btn-danger btn-sm">
+								<a href="?page=Inven/del_inventory&kode=<?php echo $data['no_produksi']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')" title="Hapus" class="btn btn-danger btn-sm">
 									<i class="fa fa-trash"></i>
 									</>
 							</td>

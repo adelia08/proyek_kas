@@ -165,7 +165,7 @@ include "inc/rupiah.php";
 								</a>
 								<ul class="nav nav-treeview">
 									<li class="nav-item">
-										<a href="?page=i_data_inven" class="nav-link">
+										<a href="?page=Inven/data_inventory" class="nav-link">
 											<i class="nav-icon far fa-circle text-success"></i>
 											<p>Pendataan</p>
 										</a>
@@ -321,16 +321,16 @@ include "inc/rupiah.php";
 								break;
 
 								//Inventory
-							case 'i_data_inven':
+							case 'Inven/data_inventory':
 								include "admin/inventory/data_inven.php";
 								break;
-							case 'i_add_inven':
+							case 'Inven/add_inventory':
 								include "admin/inventory/add_inven.php";
 								break;
-							case 'i_edit_inven':
+							case 'Inven/edit_inventory':
 								include "admin/inventory/edit_inven.php";
 								break;
-							case 'i_del_inven':
+							case 'Inven/del_inventory':
 								include "admin/inventory/del_inven.php";
 								break;
 

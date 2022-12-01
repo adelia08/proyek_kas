@@ -10,7 +10,7 @@ if (isset($_GET['kode'])) {
 <div class="card card-success">
 	<div class="card-header">
 		<h3 class="card-title">
-			<i class="fa fa-edit"></i> Ubah Pemasukan
+			<i class="fa fa-edit"></i> Ubah Pendataan
 		</h3>
 	</div>
 	<form action="" method="post" enctype="multipart/form-data">
@@ -57,7 +57,7 @@ if (isset($_GET['kode'])) {
 		</div>
 		<div class="card-footer">
 			<input type="submit" name="Ubah" value="Simpan" class="btn btn-success">
-			<a href="?page=i_data_inven" title="Kembali" class="btn btn-secondary">Batal</a>
+			<a href="?page=Inven/data_inventory" title="Kembali" class="btn btn-secondary">Batal</a>
 		</div>
 	</form>
 </div>
@@ -83,14 +83,14 @@ if (isset($_POST['Ubah'])) {
 		echo "<script>
       Swal.fire({title: 'Ubah Data Berhasil',text: '',icon: 'success',confirmButtonText: 'OK'
       }).then((result) => {if (result.value)
-        {window.location = 'index.php?page=i_data_inven';
+        {window.location = 'index.php?page=Inven/data_inventory';
         }
       })</script>";
 	} else {
 		echo "<script>
       Swal.fire({title: 'Ubah Data Gagal',text: '',icon: 'error',confirmButtonText: 'OK'
       }).then((result) => {if (result.value)
-        {window.location = 'index.php?page=i_data_inven';
+        {window.location = 'index.php?page=Inven/data_inventory';
         }
       })</script>";
 	}

@@ -46,7 +46,7 @@
 		</div>
 		<div class="card-footer">
 			<input type="submit" name="Simpan" value="Simpan" class="btn btn-info">
-			<a href="?page=i_data_inven" title="Kembali" class="btn btn-secondary">Batal</a>
+			<a href="?page=Inven/data_inventory" title="Kembali" class="btn btn-secondary">Batal</a>
 		</div>
 	</form>
 </div>
@@ -71,14 +71,14 @@ if (isset($_POST['Simpan'])) {
 		echo "<script>
       Swal.fire({title: 'Tambah Data Berhasil',text: '',icon: 'success',confirmButtonText: 'OK'
       }).then((result) => {if (result.value){
-          window.location = 'index.php?page=i_data_inven';
+          window.location = 'index.php?page=Inven/data_inventory';
           }
       })</script>";
 	} else {
 		echo "<script>
       Swal.fire({title: 'Tambah Data Gagal',text: '',icon: 'error',confirmButtonText: 'OK'
       }).then((result) => {if (result.value){
-          window.location = 'index.php?page=i_add_inven';
+          window.location = 'index.php?page=Inven/add_inventory';
           }
       })</script>";
 	}

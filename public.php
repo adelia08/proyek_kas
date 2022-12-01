@@ -12,7 +12,7 @@ include "inc/rupiah.php";
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Dapur Dodol Satibi</title>
-  <link rel="icon" href="dist/img/masjid.jpg">
+  <link rel="icon" href="dist/img/logo.jpg">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
