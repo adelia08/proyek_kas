@@ -29,19 +29,6 @@
 			</div>
 
 
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Jumlah Produk Expired</label>
-				<div class="col-sm-4">
-					<input type="text" class="form-control" id="expired" name="expired" placeholder="Jumlah Produk Expired" required>
-				</div>
-			</div>
-
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Biaya Lainnya</label>
-				<div class="col-sm-4">
-					<input type="text" class="form-control" id="cost" name="cost" placeholder="Biaya Lainnya" required>
-				</div>
-			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Catatan</label>
@@ -64,21 +51,19 @@ if (isset($_POST['Simpan'])) {
 
 	//menangkap post masuk
 	$masuk = $_POST['masuk'];
-	$cost = $_POST['cost'];
+
 
 	//membuang Rp dan Titik
 	$masuk_hasil = preg_replace("/[^0-9]/", "", $masuk);
-	$cost_hasil = preg_replace("/[^0-9]/", "", $cost);
 
 
 	//mulai proses simpan data
-	$sql_simpan = "INSERT INTO kas_satibi (tgl_km,uraian_km,expired,catatan,masuk,cost,keluar,jenis) VALUES (
+	$sql_simpan = "INSERT INTO kas_satibi (tgl_km,uraian_km,catatan,masuk,keluar,jenis) VALUES (
         '" . $_POST['tgl_km'] . "',
         '" . $_POST['uraian_km'] . "',
-		'" . $_POST['expired'] . "',
 		'" . $_POST['catatan'] . "',
         '" . $masuk_hasil . "',
-		'" . $cost_hasil . "',
+
         '0',
         'Masuk')";
 	$query_simpan = mysqli_query($koneksi, $sql_simpan);
@@ -127,25 +112,5 @@ if (isset($_POST['Simpan'])) {
 
 		masuk = split[1] != undefined ? masuk + ',' + split[1] : masuk;
 		return prefix == undefined ? masuk : (masuk ? 'Rp ' + masuk : '');
-	}
-
-	/* Fungsi formatCost */
-	function formatCost(angka, prefix) {
-		var number_string = angka.replace(/[^,\d]/g, '').toString(),
-			split = number_string.split(','),
-			sisa = split[0].length % 3,
-			$cost_hasil = split[0].substr(0, sisa),
-			ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-
-		// tambahkan titik jika yang di input sudah menjadi angka ribuan
-		if (ribuan) {
-			separator = sisa ? '.' : '';
-			$cost_hasil += separator + ribuan.join('.');
-		}
-
-		$cost_hasil = split[1] != undefined ? $cost_hasil + ',' + split[1] : $cost_hasil;
-		return prefix == undefined ? $cost_hasil : ($cost_hasil ? 'Rp ' + $cost_hasil : '');
-
-
 	}
 </script>

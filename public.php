@@ -73,7 +73,7 @@ include "inc/rupiah.php";
       <!-- Brand Logo -->
       <a href="index.php" class="brand-link">
         <img src="dist/img/masjid.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light"> Masjid Darul Ilmi</span>
+        <span class="brand-text font-weight-light"> Dapur Dodol Satibi</span>
       </a>
 
       <!-- Sidebar -->
@@ -84,7 +84,7 @@ include "inc/rupiah.php";
             <img src="dist/img/avatar.png" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block">CP : 085878526048</a>
+            <a href="#" class="d-block">CP : -</a>
           </div>
         </div>
 
@@ -103,7 +103,7 @@ include "inc/rupiah.php";
             </li>
 
             <li class="nav-item has-treeview">
-              <a href="?page=publikasi/kas/masjid" class="nav-link">
+              <a href="?page=publikasi/kas/satibi" class="nav-link">
                 <i class="nav-icon fas fa-bell"></i>
                 <p>
                   Kas Satibi
@@ -156,13 +156,10 @@ include "inc/rupiah.php";
             switch ($hal) {
                 //Klik Halaman Home Pengguna
 
-              case 'publikasi/kas/masjid':
-                include "bendahara/masjid/rekap_kas.php";
+              case 'publikasi/kas/satibi':
+                include "bendahara/satibi/rekap_kas.php";
                 break;
 
-              case 'publikasi/kas/sosial':
-                include "bendahara/sosial/rekap_kas.php";
-                break;
 
               case 'home':
                 include "home/publikasi.php";

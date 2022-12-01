@@ -155,6 +155,24 @@ include "inc/rupiah.php";
 								</ul>
 							</li>
 
+							<li class="nav-item has-treeview">
+								<a href="#" class="nav-link">
+									<i class="nav-icon fas fa-bell"></i>
+									<p>
+										Inventory
+										<i class="fas fa-angle-left right"></i>
+									</p>
+								</a>
+								<ul class="nav nav-treeview">
+									<li class="nav-item">
+										<a href="?page=i_data_inven" class="nav-link">
+											<i class="nav-icon far fa-circle text-success"></i>
+											<p>Pendataan</p>
+										</a>
+									</li>
+								</ul>
+							</li>
+
 
 							<li class="nav-item has-treeview">
 								<a href="#" class="nav-link">
@@ -301,6 +319,21 @@ include "inc/rupiah.php";
 							case 'MyApp/del_pengguna':
 								include "admin/pengguna/del_pengguna.php";
 								break;
+
+								//Inventory
+							case 'i_data_inven':
+								include "admin/inventory/data_inven.php";
+								break;
+							case 'i_add_inven':
+								include "admin/inventory/add_inven.php";
+								break;
+							case 'i_edit_inven':
+								include "admin/inventory/edit_inven.php";
+								break;
+							case 'i_del_inven':
+								include "admin/inventory/del_inven.php";
+								break;
+
 
 								//Satibi in
 							case 'i_data_km':

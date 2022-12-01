@@ -37,7 +37,7 @@ $ssaldo = $smasuk - $skeluar;
       <div class="icon">
         <i class="ion ion-stats-bars"></i>
       </div>
-      <a href="?page=publikasi/kas/masjid" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+      <a href="?page=publikasi/kas/satibi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
     </div>
   </div>
   <!-- ./col -->

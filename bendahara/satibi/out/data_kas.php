@@ -36,6 +36,7 @@
 						<th>Tanggal</th>
 						<th>Produk</th>
 						<th>Jumlah Pengeluaran</th>
+						<th>Biaya Lainnya</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -60,6 +61,9 @@
 							</td>
 							<td align="right">
 								<?php echo rupiah($data['keluar']); ?>
+							</td>
+							<td align="right">
+								<?php echo rupiah($data['cost']); ?>
 							</td>
 							<td>
 								<a href="?page=o_edit_km&kode=<?php echo $data['id_km']; ?>" title="Ubah" class="btn btn-success btn-sm">

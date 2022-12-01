@@ -28,6 +28,14 @@
         </div>
       </div>
 
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Biaya Lainnya</label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="cost" name="cost" placeholder="Biaya Lainnya" required>
+        </div>
+      </div>
+
+
 
     </div>
     <div class="card-footer">
@@ -43,15 +51,19 @@ if (isset($_POST['Simpan'])) {
 
   //menangkap post masuk
   $keluar = $_POST['keluar'];
+  $cost = $_POST['cost'];
 
   //membuang Rp dan Titik
   $keluar_hasil = preg_replace("/[^0-9]/", "", $keluar);
+  $cost_hasil = preg_replace("/[^0-9]/", "", $cost);
+
 
   //mulai proses simpan data
-  $sql_simpan = "INSERT INTO kas_satibi (tgl_km,produk,keluar,masuk,jenis) VALUES (
+  $sql_simpan = "INSERT INTO kas_satibi (tgl_km,produk,keluar,masuk,cost,jenis) VALUES (
         '" . $_POST['tgl_km'] . "',
         '" . $_POST['produk'] . "',
         '" . $keluar_hasil . "',
+        '" . $cost_hasil . "',
         '0',
         'Keluar')";
   $query_simpan = mysqli_query($koneksi, $sql_simpan);
@@ -101,5 +113,25 @@ if (isset($_POST['Simpan'])) {
 
     keluar = split[1] != undefined ? keluar + ',' + split[1] : keluar;
     return prefix == undefined ? keluar : (keluar ? 'Rp ' + keluar : '');
+  }
+
+  /* Fungsi formatCost */
+  function formatCost(angka, prefix) {
+    var number_string = angka.replace(/[^,\d]/g, '').toString(),
+      split = number_string.split(','),
+      sisa = split[0].length % 3,
+      $cost_hasil = split[0].substr(0, sisa),
+      ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+    // tambahkan titik jika yang di input sudah menjadi angka ribuan
+    if (ribuan) {
+      separator = sisa ? '.' : '';
+      $cost_hasil += separator + ribuan.join('.');
+    }
+
+    $cost_hasil = split[1] != undefined ? $cost_hasil + ',' + split[1] : $cost_hasil;
+    return prefix == undefined ? $cost_hasil : ($cost_hasil ? 'Rp ' + $cost_hasil : '');
+
+
   }
 </script>

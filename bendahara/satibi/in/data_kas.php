@@ -35,8 +35,6 @@
 						<th>Tanggal</th>
 						<th>Cabang</th>
 						<th>Jumlah Pemasukan</th>
-						<th>Biaya Lainnya</th>
-						<th>Jumlah Produk Expired</th>
 						<th>Catatan</th>
 						<th>Aksi</th>
 					</tr>
@@ -63,12 +61,7 @@
 							<td align="right">
 								<?php echo rupiah($data['masuk']); ?>
 							</td>
-							<td align="right">
-								<?php echo rupiah($data['cost']); ?>
-							</td>
-							<td>
-								<?php echo $data['expired']; ?>
-							</td>
+
 							<td>
 								<?php echo $data['catatan']; ?>
 							</td>
