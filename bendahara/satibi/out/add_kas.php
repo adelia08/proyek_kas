@@ -49,7 +49,7 @@
 
 if (isset($_POST['Simpan'])) {
 
-  //menangkap post masuk
+  //menangkap post keluar
   $keluar = $_POST['keluar'];
   $cost = $_POST['cost'];
 
@@ -59,7 +59,7 @@ if (isset($_POST['Simpan'])) {
 
 
   //mulai proses simpan data
-  $sql_simpan = "INSERT INTO kas_satibi (tgl_km,produk,keluar,masuk,cost,jenis) VALUES (
+  $sql_simpan = "INSERT INTO kas_satibi (tgl_km,produk,keluar,cost,masuk,jenis) VALUES (
         '" . $_POST['tgl_km'] . "',
         '" . $_POST['produk'] . "',
         '" . $keluar_hasil . "',

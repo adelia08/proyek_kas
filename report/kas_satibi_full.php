@@ -11,12 +11,13 @@ while ($data = $sql->fetch_assoc()) {
   $masuk = $data['tot_masuk'];
 }
 
-$sql = $koneksi->query("SELECT SUM(keluar) as tot_keluar  from kas_satibi where jenis='Keluar'");
+$sql = $koneksi->query("SELECT SUM(keluar) as tot_keluar, SUM(cost) as tot_cost from kas_satibi where jenis='Keluar'");
 while ($data = $sql->fetch_assoc()) {
-  $keluar = $data['tot_keluar'];
+  $total_keluar = $data['tot_keluar'] + $data['tot_cost'];
 }
+$sql = $koneksi->query("UPDATE kas_satibi SET total_keluar = keluar + cost ");
 
-$saldo = $masuk - $keluar;
+$total_akhir = $masuk - $total_keluar;
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +57,7 @@ $saldo = $masuk - $keluar;
                 echo date("d/M/Y", strtotime($tgl)) ?></td>
             <td><?php echo $data['uraian_km']; ?></td>
             <td align="right"><?php echo rupiah($data['masuk']); ?></td>
-            <td align="right"><?php echo rupiah($data['keluar']); ?></td>
+            <td align="right"><?php echo rupiah($data['total_keluar']); ?></td>
           </tr>
         <?php
           $no++;
@@ -69,11 +70,11 @@ $saldo = $masuk - $keluar;
       </tr>
       <tr>
         <td colspan="4">Total Pengeluaran</td>
-        <td><?php echo rupiah($keluar); ?></td>
+        <td><?php echo rupiah($total_keluar); ?></td>
       </tr>
       <tr>
         <td colspan="3">Saldo Keuangan</td>
-        <td colspan="2"><?php echo rupiah($saldo); ?></td>
+        <td colspan="2"><?php echo rupiah($total_akhir); ?></td>
       </tr>
     </table>
   </center>

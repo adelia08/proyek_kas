@@ -4,15 +4,16 @@
 		<i class="icon fas fa-info"></i> Total Pengeluaran
 	</h5>
 	<?php
-	$sql = $koneksi->query("SELECT SUM(keluar) as tot_masuk  from kas_satibi where jenis='Keluar'");
+	$sql = $koneksi->query("SELECT SUM(keluar) as tot_keluar, SUM(cost) as tot_cost from kas_satibi where jenis='Keluar'");
 	while ($data = $sql->fetch_assoc()) {
-	?>
-		<h2>
-			<?php echo rupiah($data['tot_masuk']); ?>
-		</h2>
-	<?php
+		$total_keluar = $data['tot_keluar'] + $data['tot_cost'];
 	}
+	$sql = $koneksi->query("UPDATE kas_satibi SET total_keluar = keluar + cost ");
 	?>
+	<h2>
+		<?php echo rupiah($total_keluar); ?>
+	</h2>
+
 </div>
 
 <div class="card card-info">
@@ -37,6 +38,7 @@
 						<th>Produk</th>
 						<th>Jumlah Pengeluaran</th>
 						<th>Biaya Lainnya</th>
+						<th>Total Pengeluaran</th>
 						<th>Aksi</th>
 					</tr>
 				</thead>
@@ -59,11 +61,14 @@
 							<td>
 								<?php echo $data['produk']; ?>
 							</td>
-							<td align="right">
+							<td>
 								<?php echo rupiah($data['keluar']); ?>
 							</td>
-							<td align="right">
+							<td>
 								<?php echo rupiah($data['cost']); ?>
+							</td>
+							<td>
+								<?php echo rupiah($data['total_keluar']); ?>
 							</td>
 							<td>
 								<a href="?page=o_edit_km&kode=<?php echo $data['id_km']; ?>" title="Ubah" class="btn btn-success btn-sm">

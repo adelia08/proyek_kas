@@ -1,23 +1,26 @@
 <?php
-$sql = $koneksi->query("SELECT SUM(masuk) as tot_masuk  from kas_satibi where jenis='Masuk'");
+$sql = $koneksi->query("SELECT SUM(masuk) as tot_masuk from kas_satibi where jenis='Masuk'");
 while ($data = $sql->fetch_assoc()) {
 	$masuk = $data['tot_masuk'];
 }
-?>
 
-<!-- <?php
-		$sql = $koneksi->query("SELECT cost from kas_satibi");
-		while ($data = $sql->fetch_assoc()) {
-			$cost = $data['cost'];
-		}
-		?> -->
-
-<?php
-$sql = $koneksi->query("SELECT SUM(keluar) as tot_keluar  from kas_satibi where jenis='Keluar'");
+$sql = $koneksi->query("SELECT SUM(keluar) as tot_keluar, SUM(cost) as tot_cost from kas_satibi where jenis='Keluar'");
 while ($data = $sql->fetch_assoc()) {
-	$keluar = $data['tot_keluar'];
+	$total_keluar = $data['tot_keluar'] + $data['tot_cost'];
 }
+$sql = $koneksi->query("UPDATE kas_satibi SET total_keluar = keluar + cost ");
+
+
+$sql = $koneksi->query("SELECT SUM(total_akhir) as tot_akhir, SUM(masuk) as tot_masuk from kas_satibi ");
+while ($data = $sql->fetch_assoc()) {
+	$total_akhir = $data['tot_akhir'] + $data['tot_masuk'];
+}
+$sql = $koneksi->query("UPDATE kas_satibi SET total_akhir = masuk - total_keluar");
+
+// Menghitung saldo akhir
+$total_akhir = $masuk - $total_keluar;
 ?>
+
 
 <div class="alert alert-info alert-dismissible">
 	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -26,24 +29,20 @@ while ($data = $sql->fetch_assoc()) {
 	</h5>
 	<h5>Pemasukan :
 		<?php
-		// $masuk_total = $masuk - $cost;
-		// echo rupiah($masuk_total);
 		echo rupiah($masuk);
-
 		?>
 	</h5>
 
 	<h5>Pengeluaran :
 		<?php
-		echo rupiah($keluar);
+		echo rupiah($total_keluar)
 		?>
 	</h5>
 	<hr>
 
 	<h3>Saldo Akhir :
 		<?php
-		$saldo = $masuk - $keluar;
-		echo rupiah($saldo);
+		echo rupiah($total_akhir);
 		?>
 	</h3>
 </div>
@@ -66,6 +65,9 @@ while ($data = $sql->fetch_assoc()) {
 						<th>Cabang</th>
 						<th>Pemasukan</th>
 						<th>Pengeluaran</th>
+						<th>Biaya Lainnya</th>
+						<th>Total Pengeluaran</th>
+						<th>Total Akhir</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -87,13 +89,21 @@ while ($data = $sql->fetch_assoc()) {
 							<td>
 								<?php echo $data['uraian_km']; ?>
 							</td>
-							<td align="right">
+							<td>
 
-								<!-- //ATURAN MASU TOTAL = MASUK - COST -->
 								<?php echo rupiah($data['masuk']); ?>
 							</td>
-							<td align="right">
+							<td>
 								<?php echo rupiah($data['keluar']); ?>
+							</td>
+							<td>
+								<?php echo rupiah($data['cost']); ?>
+							</td>
+							<td>
+								<?php echo rupiah($data['total_keluar']); ?>
+							</td>
+							<td>
+								<?php echo rupiah($data['total_akhir']); ?>
 							</td>
 						</tr>
 
@@ -105,4 +115,3 @@ while ($data = $sql->fetch_assoc()) {
 			</table>
 		</div>
 	</div>
-	<!-- /.card-body -->
