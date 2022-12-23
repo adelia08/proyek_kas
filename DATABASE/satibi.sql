@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2022 at 04:58 AM
+-- Generation Time: Dec 23, 2022 at 07:11 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -29,10 +29,20 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `inventory` (
   `no_produksi` int(8) NOT NULL,
-  `tgl_input` datetime NOT NULL,
+  `tgl_input` date NOT NULL,
   `nama_produk` varchar(255) NOT NULL,
-  `expired` datetime NOT NULL
+  `jumlah_produk` int(255) NOT NULL,
+  `expired` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`no_produksi`, `tgl_input`, `nama_produk`, `jumlah_produk`, `expired`) VALUES
+(1281926, '2022-12-10', 'DODOLALU', 20, '2022-12-29'),
+(1291829, '2022-12-02', 'dodolillili', 13, '2022-12-31'),
+(12345678, '2022-12-03', 'DODOLA', 23, '2022-12-31');
 
 -- --------------------------------------------------------
 
@@ -44,32 +54,24 @@ CREATE TABLE `kas_satibi` (
   `id_km` int(11) NOT NULL,
   `tgl_km` date NOT NULL,
   `uraian_km` varchar(200) NOT NULL,
+  `produk` varchar(255) NOT NULL,
+  `jenis` enum('Masuk','Keluar') NOT NULL,
   `catatan` varchar(255) NOT NULL,
   `masuk` int(11) NOT NULL,
   `cost` int(11) NOT NULL,
   `keluar` int(11) NOT NULL,
-  `jenis` enum('Masuk','Keluar') NOT NULL,
-  `produk` varchar(255) NOT NULL
+  `total_keluar` int(255) NOT NULL,
+  `total_akhir` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kas_satibi`
 --
 
-INSERT INTO `kas_satibi` (`id_km`, `tgl_km`, `uraian_km`, `catatan`, `masuk`, `cost`, `keluar`, `jenis`, `produk`) VALUES
-(6, '2022-11-03', 'bekasi', 'test note', 200088, 0, 0, 'Masuk', ''),
-(7, '2022-11-05', 'bekasi', 'test note ini', 20008866, 0, 0, 'Masuk', ''),
-(9, '2022-11-08', 'bogor', 'tolong dicrosscheckkss', 20000, 2000, 0, 'Masuk', ''),
-(10, '2022-11-02', '', '', 0, 0, 200000, 'Keluar', 'gula'),
-(11, '2022-11-12', 'bekasi', 'ok', 0, 0, 30000, '', 'Masuk'),
-(12, '2022-11-05', 'jkt', 'ok', 30000, 0, 0, 'Masuk', ''),
-(13, '2022-11-05', '', '', 0, 0, 0, '', 'Keluar'),
-(16, '2022-11-10', '', '', 0, 0, 250000, 'Keluar', 'plastik'),
-(17, '2022-02-03', '', '', 0, 0, 1300000, 'Keluar', 'gula'),
-(19, '2022-11-06', '', '', 0, 20000, 260000, 'Keluar', 'gula'),
-(20, '2022-11-07', 'jkt', 'tolong dicek ya', 600000, 0, 0, 'Masuk', ''),
-(23, '2022-11-25', 'JAKARTA RAYA', 'NOTE YA', 100000, 40000, 0, 'Masuk', ''),
-(24, '0000-00-00', '', '', 0, 0, 0, 'Masuk', '');
+INSERT INTO `kas_satibi` (`id_km`, `tgl_km`, `uraian_km`, `produk`, `jenis`, `catatan`, `masuk`, `cost`, `keluar`, `total_keluar`, `total_akhir`) VALUES
+(34, '2022-12-01', '', 'tepung', 'Keluar', '', 0, 50000, 250000, 300000, -300000),
+(35, '2022-12-03', 'bekasi', '', 'Masuk', 'ok', 900000, 0, 0, 0, 900000),
+(36, '2022-12-03', 'jkt', '', 'Masuk', 'NOTE YA', 100000, 0, 0, 0, 100000);
 
 -- --------------------------------------------------------
 
@@ -124,13 +126,13 @@ ALTER TABLE `tb_pengguna`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `no_produksi` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `no_produksi` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12345679;
 
 --
 -- AUTO_INCREMENT for table `kas_satibi`
 --
 ALTER TABLE `kas_satibi`
-  MODIFY `id_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tb_pengguna`
