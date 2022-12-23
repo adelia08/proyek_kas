@@ -22,19 +22,19 @@ while ($data = $sql->fetch_assoc()) {
 $saldo = $masuk - $keluar;
 ?>
 
-<?php
-$sql = $koneksi->query("SELECT SUM(masuk) as tot_masuk  from kas_sosial where jenis='Masuk'");
-while ($data = $sql->fetch_assoc()) {
-	$smasuk = $data['tot_masuk'];
-}
+<!-- <?php
+		$sql = $koneksi->query("SELECT SUM(masuk) as tot_masuk  from kas_sosial where jenis='Masuk'");
+		while ($data = $sql->fetch_assoc()) {
+			$smasuk = $data['tot_masuk'];
+		}
 
-$sql = $koneksi->query("SELECT SUM(keluar) as tot_keluar  from kas_sosial where jenis='Keluar'");
-while ($data = $sql->fetch_assoc()) {
-	$skeluar = $data['tot_keluar'];
-}
+		$sql = $koneksi->query("SELECT SUM(keluar) as tot_keluar  from kas_sosial where jenis='Keluar'");
+		while ($data = $sql->fetch_assoc()) {
+			$skeluar = $data['tot_keluar'];
+		}
 
-$ssaldo = $smasuk - $skeluar;
-?>
+		$ssaldo = $smasuk - $skeluar;
+		?> -->
 
 
 <div class="row">

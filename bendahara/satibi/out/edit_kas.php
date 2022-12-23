@@ -16,9 +16,6 @@ if (isset($_GET['kode'])) {
 
       <input type='hidden' class="form-control" name="id_km" value="<?php echo $data_cek['id_km']; ?>" readonly />
 
-
-
-
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Tanggal</label>
         <div class="col-sm-4">

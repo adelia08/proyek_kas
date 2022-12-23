@@ -17,7 +17,7 @@
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">No. Produksi</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" id="no_produksi" name="no_produksi" placeholder="Nomor Produksi" required>
+					<input type="text" class="form-control" id="no_produksi" name="no_produksi" placeholder="(max. 8 angka)" required>
 				</div>
 			</div>
 
@@ -57,12 +57,12 @@ if (isset($_POST['Simpan'])) {
 
 
 	//mulai proses simpan data
-	$sql_simpan = "INSERT INTO inventory (no_produksi,tgl_input,nama_produk,jumlah_produk,expired) VALUES (
-        '" . $_POST['no_produksi'] . "',
-        '" . $_POST['tgl_input'] . "',
+	$sql_simpan = "INSERT INTO inventory (tgl_input,no_produksi,nama_produk,jumlah_produk,expired) VALUES (
+		'" . $_POST['tgl_input'] . "',
+       	'" . $_POST['no_produksi'] . "',
 		'" . $_POST['nama_produk'] . "',
 		'" . $_POST['jumlah_produk'] . "',
-		'" . $_POST['expired'] . "',
+		'" . $_POST['expired'] . "'
 	)";
 	$query_simpan = mysqli_query($koneksi, $sql_simpan);
 	mysqli_close($koneksi);

@@ -21,35 +21,35 @@ if (isset($_GET['kode'])) {
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Tanggal Input</label>
 				<div class="col-sm-4">
-					<input type="date" class="form-control" id="tgl_input" name="tgl_input" required>
+					<input type="date" class="form-control" id="tgl_input" name="tgl_input" value="<?php echo $data_cek['tgl_input']; ?>" />
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">No. Produksi</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" id="no_produksi" name="no_produksi" placeholder="Nomor Produksi" required>
+					<input type="text" class="form-control" id="no_produksi" name="no_produksi" value="<?php echo $data_cek['no_produksi']; ?>" />
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Nama Produk</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Nama Produk" required>
+					<input type="text" class="form-control" id="nama_produk" name="nama_produk" value="<?php echo $data_cek['nama_produk']; ?>" />
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Jumlah Produk</label>
 				<div class="col-sm-8">
-					<input type="text" class="form-control" id="jumlah_produk" name="jumlah_produk" placeholder="Jumlah Produk" required>
+					<input type="text" class="form-control" id="jumlah_produk" name="jumlah_produk" value="<?php echo $data_cek['jumlah_produk']; ?>" />
 				</div>
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Tanggal Expired</label>
-				<div class="col-sm-4">
-					<input type="date" class="form-control" id="expired" name="expired" required>
+				<label class="col-sm-2 col-form-label">Expired</label>
+				<div class="col-sm-8">
+					<input type="date" class="form-control" id="expired" name="expired" value="<?php echo $data_cek['expired']; ?>" />
 				</div>
 			</div>
 
@@ -68,14 +68,13 @@ if (isset($_GET['kode'])) {
 
 if (isset($_POST['Ubah'])) {
 
-
-
 	$sql_ubah = "UPDATE inventory SET
-        '" . $_POST['tgl_input'] . "',
-		'" . $_POST['nama_produk'] . "',
-		'" . $_POST['jumlah_produk'] . "',
-		'" . $_POST['expired'] . "',
-        WHERE no_produksi='" . $_POST['no_produksi'] . "'";
+	no_produksi='" . $_POST['no_produksi'] . "',
+	tgl_input='" . $_POST['tgl_input'] . "',
+	nama_produk='" . $_POST['nama_produk'] . "',
+	jumlah_produk='" . $_POST['jumlah_produk'] . "',
+	expired='" . $_POST['expired'] . "'
+	WHERE no_produksi='" . $_POST['no_produksi'] . "'";
 	$query_ubah = mysqli_query($koneksi, $sql_ubah);
 	mysqli_close($koneksi);
 

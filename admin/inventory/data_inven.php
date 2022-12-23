@@ -8,7 +8,7 @@
 	<div class="card-body">
 		<div class="table-responsive">
 			<div>
-				<a href="?page=Inven/data_inventory" class="btn btn-primary">
+				<a href="?page=Inven/add_inventory" class="btn btn-primary">
 					<i class="fa fa-edit"></i> Tambah Data</a>
 			</div>
 			<br>
