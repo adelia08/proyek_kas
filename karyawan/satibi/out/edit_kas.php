@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET['kode'])) {
-  $sql_cek = "SELECT * FROM kas_satibi WHERE id_km='" . $_GET['kode'] . "'";
+  $sql_cek = "SELECT * FROM kas_satibi WHERE id_ks='" . $_GET['kode'] . "'";
   $query_cek = mysqli_query($koneksi, $sql_cek);
   $data_cek = mysqli_fetch_array($query_cek, MYSQLI_BOTH);
 }
@@ -14,12 +14,12 @@ if (isset($_GET['kode'])) {
   <form action="" method="post" enctype="multipart/form-data">
     <div class="card-body">
 
-      <input type='hidden' class="form-control" name="id_km" value="<?php echo $data_cek['id_km']; ?>" readonly />
+      <input type='hidden' class="form-control" name="id_ks" value="<?php echo $data_cek['id_ks']; ?>" readonly />
 
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Tanggal</label>
         <div class="col-sm-4">
-          <input type="date" class="form-control" id="tgl_km" name="tgl_km" value="<?php echo $data_cek['tgl_km']; ?>" />
+          <input type="date" class="form-control" id="tgl" name="tgl" value="<?php echo $data_cek['tgl']; ?>" />
         </div>
       </div>
 
@@ -70,8 +70,8 @@ if (isset($_POST['Ubah'])) {
         produk='" . $_POST['produk'] . "',
         keluar='" . $keluar_hasil . "',
         cost='" . $cost_hasil . "',
-        tgl_km='" . $_POST['tgl_km'] . "'
-        WHERE id_km='" . $_POST['id_km'] . "'";
+        tgl='" . $_POST['tgl'] . "'
+        WHERE id_ks='" . $_POST['id_ks'] . "'";
   $query_ubah = mysqli_query($koneksi, $sql_ubah);
   mysqli_close($koneksi);
 

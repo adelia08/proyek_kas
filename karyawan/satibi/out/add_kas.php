@@ -10,7 +10,7 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label">Tanggal</label>
         <div class="col-sm-4">
-          <input type="date" class="form-control" id="tgl_km" name="tgl_km" required>
+          <input type="date" class="form-control" id="tgl" name="tgl" required>
         </div>
       </div>
 
@@ -59,8 +59,8 @@ if (isset($_POST['Simpan'])) {
 
 
   //mulai proses simpan data
-  $sql_simpan = "INSERT INTO kas_satibi (tgl_km,produk,keluar,cost,masuk,jenis) VALUES (
-        '" . $_POST['tgl_km'] . "',
+  $sql_simpan = "INSERT INTO kas_satibi (tgl,produk,keluar,cost,masuk,jenis) VALUES (
+        '" . $_POST['tgl'] . "',
         '" . $_POST['produk'] . "',
         '" . $keluar_hasil . "',
         '" . $cost_hasil . "',

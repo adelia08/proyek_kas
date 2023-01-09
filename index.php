@@ -137,7 +137,7 @@ include "inc/rupiah.php";
 									<li class="nav-item">
 										<a href="?page=i_data_km" class="nav-link">
 											<i class="nav-icon far fa-circle text-success"></i>
-											<p>Pemasukan</p>
+											<p>Pendapatan</p>
 										</a>
 									</li>
 									<li class="nav-item">
@@ -186,7 +186,7 @@ include "inc/rupiah.php";
 									<li class="nav-item">
 										<a href="?page=lap_satibi" class="nav-link">
 											<i class="nav-icon far fa-circle text-warning"></i>
-											<p>Rekap Laporan </p>
+											<p>Cetak Rekap Kas </p>
 										</a>
 									</li>
 
@@ -205,7 +205,7 @@ include "inc/rupiah.php";
 							</li>
 
 						<?php
-						} elseif ($data_level == "Bendahara") {
+						} elseif ($data_level == "Karyawan") {
 						?>
 							<li class="nav-item">
 								<a href="http://localhost/kas_satibi/" class="nav-link">
@@ -229,7 +229,7 @@ include "inc/rupiah.php";
 									<li class="nav-item">
 										<a href="?page=i_data_km" class="nav-link">
 											<i class="nav-icon far fa-circle text-success"></i>
-											<p>Pemasukan</p>
+											<p>Pendapatan</p>
 										</a>
 									</li>
 
@@ -302,8 +302,8 @@ include "inc/rupiah.php";
 							case 'MyApp/admin':
 								include "home/admin.php";
 								break;
-							case 'bendahara':
-								include "home/bendahara.php";
+							case 'karyawan':
+								include "home/karyawan.php";
 								break;
 
 								//Pengguna
@@ -337,40 +337,37 @@ include "inc/rupiah.php";
 
 								//Satibi in
 							case 'i_data_km':
-								include "bendahara/satibi/in/data_kas.php";
+								include "karyawan/satibi/in/data_kas.php";
 								break;
 							case 'i_add_km':
-								include "bendahara/satibi/in/add_kas.php";
+								include "karyawan/satibi/in/add_kas.php";
 								break;
 							case 'i_edit_km':
-								include "bendahara/satibi/in/edit_kas.php";
-								break;
-							case 'i_del_km':
-								include "bendahara/satibi/in/del_kas.php";
+								include "karyawan/satibi/in/edit_kas.php";
 								break;
 
 								//Satibi out
 							case 'o_data_km':
-								include "bendahara/satibi/out/data_kas.php";
+								include "karyawan/satibi/out/data_kas.php";
 								break;
 							case 'o_add_km':
-								include "bendahara/satibi/out/add_kas.php";
+								include "karyawan/satibi/out/add_kas.php";
 								break;
 							case 'o_edit_km':
-								include "bendahara/satibi/out/edit_kas.php";
+								include "karyawan/satibi/out/edit_kas.php";
 								break;
 							case 'o_del_km':
-								include "bendahara/satibi/out/del_kas.php";
+								include "karyawan/satibi/out/del_kas.php";
 								break;
 
 							case 'rekap_km':
-								include "bendahara/satibi/rekap_kas.php";
+								include "karyawan/satibi/rekap_kas.php";
 								break;
 
 
 								//lap kas mas
 							case 'lap_satibi':
-								include "bendahara/laporan/lap_mas.php";
+								include "karyawan/laporan/lap_mas.php";
 								break;
 
 
@@ -383,8 +380,8 @@ include "inc/rupiah.php";
 						// Auto Halaman Home Pengguna
 						if ($data_level == "Administrator") {
 							include "home/admin.php";
-						} elseif ($data_level == "Bendahara") {
-							include "home/bendahara.php";
+						} elseif ($data_level == "karyawan") {
+							include "home/karyawan.php";
 						}
 					}
 					?>

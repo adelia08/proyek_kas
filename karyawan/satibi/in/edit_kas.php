@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_GET['kode'])) {
-	$sql_cek = "SELECT * FROM kas_satibi WHERE id_km='" . $_GET['kode'] . "'";
+	$sql_cek = "SELECT * FROM kas_satibi WHERE id_ks='" . $_GET['kode'] . "'";
 	$query_cek = mysqli_query($koneksi, $sql_cek);
 	$data_cek = mysqli_fetch_array($query_cek, MYSQLI_BOTH);
 }
@@ -10,23 +10,27 @@ if (isset($_GET['kode'])) {
 <div class="card card-success">
 	<div class="card-header">
 		<h3 class="card-title">
-			<i class="fa fa-edit"></i> Ubah Pemasukan
+			<i class="fa fa-edit"></i> Ubah Pendapatan
 		</h3>
 	</div>
 	<form action="" method="post" enctype="multipart/form-data">
 		<div class="card-body">
 
-			<input type='hidden' class="form-control" name="id_km" value="<?php echo $data_cek['id_km']; ?>" readonly />
+			<input type='hidden' class="form-control" name="id_ks" value="<?php echo $data_cek['id_ks']; ?>" readonly />
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Cabang</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" id="uraian_km" name="uraian_km" value="<?php echo $data_cek['uraian_km']; ?>" />
+				<div class="col-sm-4">
+					<select name="cabang" id="cabang" class="form-control">
+						<option>- Pilih -</option>
+						<option>Bekasi</option>
+						<option>Jakarta</option>
+					</select>
 				</div>
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Pemasukan</label>
+				<label class="col-sm-2 col-form-label">Pendapatan</label>
 				<div class="col-sm-4">
 					<input type="text" class="form-control" id="masuk" name="masuk" value="Rp <?php echo number_format(($data_cek['masuk']), 0, '', '.') ?>" />
 				</div>
@@ -35,7 +39,7 @@ if (isset($_GET['kode'])) {
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Tanggal</label>
 				<div class="col-sm-4">
-					<input type="date" class="form-control" id="tgl_km" name="tgl_km" value="<?php echo $data_cek['tgl_km']; ?>" />
+					<input type="date" class="form-control" id="tgl" name="tgl" value="<?php echo $data_cek['tgl']; ?>" />
 				</div>
 			</div>
 
@@ -70,11 +74,11 @@ if (isset($_POST['Ubah'])) {
 
 
 	$sql_ubah = "UPDATE kas_satibi SET
-        uraian_km='" . $_POST['uraian_km'] . "',
+        cabang='" . $_POST['cabang'] . "',
         masuk='" . $masuk_hasil . "',
-        tgl_km='" . $_POST['tgl_km'] . "',
+        tgl='" . $_POST['tgl'] . "',
 		catatan='" . $_POST['catatan'] . "'
-        WHERE id_km='" . $_POST['id_km'] . "'";
+        WHERE id_ks='" . $_POST['id_ks'] . "'";
 	$query_ubah = mysqli_query($koneksi, $sql_ubah);
 	mysqli_close($koneksi);
 

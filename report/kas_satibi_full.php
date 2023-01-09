@@ -39,7 +39,7 @@ $total_akhir = $masuk - $total_keluar;
           <th>No.</th>
           <th>Tanggal</th>
           <th>Cabang</th>
-          <th>Pemasukan</th>
+          <th>Pendapatan</th>
           <th>Pengeluaran</th>
         </tr>
       </thead>
@@ -47,15 +47,15 @@ $total_akhir = $masuk - $total_keluar;
         <?php
 
         $no = 1;
-        $sql_tampil = "select * from kas_satibi order by tgl_km asc";
+        $sql_tampil = "select * from kas_satibi order by tgl asc";
         $query_tampil = mysqli_query($koneksi, $sql_tampil);
         while ($data = mysqli_fetch_array($query_tampil, MYSQLI_BOTH)) {
         ?>
           <tr>
             <td><?php echo $no; ?></td>
-            <td><?php $tgl = $data['tgl_km'];
+            <td><?php $tgl = $data['tgl'];
                 echo date("d/M/Y", strtotime($tgl)) ?></td>
-            <td><?php echo $data['uraian_km']; ?></td>
+            <td><?php echo $data['cabang']; ?></td>
             <td align="right"><?php echo rupiah($data['masuk']); ?></td>
             <td align="right"><?php echo rupiah($data['total_keluar']); ?></td>
           </tr>
@@ -65,7 +65,7 @@ $total_akhir = $masuk - $total_keluar;
         ?>
       </tbody>
       <tr>
-        <td colspan="3">Total Pemasukan</td>
+        <td colspan="3">Total Pendapatan</td>
         <td colspan="2"><?php echo rupiah($masuk); ?></td>
       </tr>
       <tr>

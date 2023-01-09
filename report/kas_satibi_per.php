@@ -8,7 +8,7 @@ $dt2 = $_POST["tgl_2"];
 ?>
 
 <?php
-$sql = $koneksi->query("SELECT SUM(masuk) as tot_masuk  from kas_satibi where jenis='Masuk' and tgl_km BETWEEN '$dt1' AND '$dt2'");
+$sql = $koneksi->query("SELECT SUM(masuk) as tot_masuk  from kas_satibi where jenis='Masuk' and tgl BETWEEN '$dt1' AND '$dt2'");
 while ($data = $sql->fetch_assoc()) {
   $masuk = $data['tot_masuk'];
 }
@@ -43,7 +43,7 @@ $total_akhir = $masuk - $total_keluar;
           <th>No.</th>
           <th>Tanggal</th>
           <th>Cabang</th>
-          <th>Pemasukan</th>
+          <th>Pendapatan</th>
           <th>Pengeluaran</th>
         </tr>
       </thead>
@@ -52,7 +52,7 @@ $total_akhir = $masuk - $total_keluar;
 
         if (isset($_POST["btnCetak"])) {
 
-          $sql_tampil = "select * from kas_satibi where tgl_km BETWEEN '$dt1' AND '$dt2' order by tgl_km asc";
+          $sql_tampil = "select * from kas_satibi where tgl BETWEEN '$dt1' AND '$dt2' order by tgl asc";
         }
         $query_tampil = mysqli_query($koneksi, $sql_tampil);
         $no = 1;
@@ -60,9 +60,9 @@ $total_akhir = $masuk - $total_keluar;
         ?>
           <tr>
             <td><?php echo $no; ?></td>
-            <td><?php $tgl = $data['tgl_km'];
+            <td><?php $tgl = $data['tgl'];
                 echo date("d/M/Y", strtotime($tgl)) ?></td>
-            <td><?php echo $data['uraian_km']; ?></td>
+            <td><?php echo $data['cabang']; ?></td>
             <td align="right"><?php echo rupiah($data['masuk']); ?></td>
             <td align="right"><?php echo rupiah($data['total_keluar']); ?></td>
           </tr>
@@ -72,7 +72,7 @@ $total_akhir = $masuk - $total_keluar;
         ?>
       </tbody>
       <tr>
-        <td colspan="3">Total Pemasukan</td>
+        <td colspan="3">Total Pendapatan</td>
         <td colspan="2"><?php echo rupiah($masuk); ?></td>
       </tr>
       <tr>

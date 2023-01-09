@@ -27,7 +27,7 @@ $total_akhir = $masuk - $total_keluar;
 	<h5>
 		<i class="icon fas fa-info"></i> Saldo Keuangan
 	</h5>
-	<h5>Pemasukan :
+	<h5>Pendapatan :
 		<?php
 		echo rupiah($masuk);
 		?>
@@ -63,7 +63,7 @@ $total_akhir = $masuk - $total_keluar;
 						<th>No</th>
 						<th>Tanggal</th>
 						<th>Cabang</th>
-						<th>Pemasukan</th>
+						<th>Pendapatan</th>
 						<th>Pengeluaran</th>
 						<th>Biaya Lainnya</th>
 						<th>Total Pengeluaran</th>
@@ -74,7 +74,7 @@ $total_akhir = $masuk - $total_keluar;
 
 					<?php
 					$no = 1;
-					$sql = $koneksi->query("select * from kas_satibi order by tgl_km asc");
+					$sql = $koneksi->query("select * from kas_satibi order by tgl asc");
 					while ($data = $sql->fetch_assoc()) {
 					?>
 
@@ -83,11 +83,11 @@ $total_akhir = $masuk - $total_keluar;
 								<?php echo $no++; ?>
 							</td>
 							<td>
-								<?php $tgl = $data['tgl_km'];
+								<?php $tgl = $data['tgl'];
 								echo date("d/M/Y", strtotime($tgl)) ?>
 							</td>
 							<td>
-								<?php echo $data['uraian_km']; ?>
+								<?php echo $data['cabang']; ?>
 							</td>
 							<td>
 

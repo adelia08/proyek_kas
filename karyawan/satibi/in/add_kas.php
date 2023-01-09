@@ -1,7 +1,7 @@
 <div class="card card-primary">
 	<div class="card-header">
 		<h3 class="card-title">
-			<i class="fa fa-edit"></i> Tambah Pemasukan
+			<i class="fa fa-edit"></i> Tambah Pendapatan
 		</h3>
 	</div>
 	<form action="" method="post" enctype="multipart/form-data">
@@ -9,22 +9,26 @@
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Cabang</label>
-				<div class="col-sm-8">
-					<input type="text" class="form-control" id="uraian_km" name="uraian_km" placeholder="Cabang" required>
+				<div class="col-sm-4">
+					<select name="cabang" id="cabang" class="form-control">
+						<option>- Pilih -</option>
+						<option>Bekasi</option>
+						<option>Jakarta</option>
+					</select>
 				</div>
 			</div>
 
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Pemasukan</label>
+				<label class="col-sm-2 col-form-label">Pendapatan</label>
 				<div class="col-sm-4">
-					<input type="text" class="form-control" id="masuk" name="masuk" placeholder="Jumlah Pemasukan" required>
+					<input type="text" class="form-control" id="masuk" name="masuk" placeholder="Jumlah Pendapatan" required>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Tanggal</label>
 				<div class="col-sm-4">
-					<input type="date" class="form-control" id="tgl_km" name="tgl_km" required>
+					<input type="date" class="form-control" id="tgl" name="tgl" required>
 				</div>
 			</div>
 
@@ -58,9 +62,9 @@ if (isset($_POST['Simpan'])) {
 
 
 	//mulai proses simpan data
-	$sql_simpan = "INSERT INTO kas_satibi (tgl_km,uraian_km,catatan,masuk,keluar,jenis) VALUES (
-        '" . $_POST['tgl_km'] . "',
-        '" . $_POST['uraian_km'] . "',
+	$sql_simpan = "INSERT INTO kas_satibi (tgl,cabang,catatan,masuk,keluar,jenis) VALUES (
+        '" . $_POST['tgl'] . "',
+        '" . $_POST['cabang'] . "',
 		'" . $_POST['catatan'] . "',
         '" . $masuk_hasil . "',
 

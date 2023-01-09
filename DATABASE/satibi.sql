@@ -51,9 +51,9 @@ INSERT INTO `inventory` (`no_produksi`, `tgl_input`, `nama_produk`, `jumlah_prod
 --
 
 CREATE TABLE `kas_satibi` (
-  `id_km` int(11) NOT NULL,
-  `tgl_km` date NOT NULL,
-  `uraian_km` varchar(200) NOT NULL,
+  `id_ks` int(11) NOT NULL,
+  `tgl` date NOT NULL,
+  `cabang` varchar(200) NOT NULL,
   `produk` varchar(255) NOT NULL,
   `jenis` enum('Masuk','Keluar') NOT NULL,
   `catatan` varchar(255) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE `kas_satibi` (
 -- Dumping data for table `kas_satibi`
 --
 
-INSERT INTO `kas_satibi` (`id_km`, `tgl_km`, `uraian_km`, `produk`, `jenis`, `catatan`, `masuk`, `cost`, `keluar`, `total_keluar`, `total_akhir`) VALUES
+INSERT INTO `kas_satibi` (`id_ks`, `tgl`, `cabang`, `produk`, `jenis`, `catatan`, `masuk`, `cost`, `keluar`, `total_keluar`, `total_akhir`) VALUES
 (34, '2022-12-01', '', 'tepung', 'Keluar', '', 0, 50000, 250000, 300000, -300000),
 (35, '2022-12-03', 'bekasi', '', 'Masuk', 'ok', 900000, 0, 0, 0, 900000),
 (36, '2022-12-03', 'jkt', '', 'Masuk', 'NOTE YA', 100000, 0, 0, 0, 100000);
@@ -84,7 +84,7 @@ CREATE TABLE `tb_pengguna` (
   `nama_pengguna` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL,
-  `level` enum('Administrator','Bendahara') NOT NULL
+  `level` enum('Administrator','karyawan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -93,8 +93,8 @@ CREATE TABLE `tb_pengguna` (
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `level`) VALUES
 (1, 'Admin satibi', 'admin', 'admin', 'Administrator'),
-(2, 'User satibi', 'bendahara', 'bendahara', 'Bendahara'),
-(3, 'adelia', 'adelia08', 'adelia', 'Bendahara');
+(2, 'User satibi', 'karyawan', 'karyawan', 'karyawan'),
+(3, 'adelia', 'adelia08', 'adelia', 'karyawan');
 
 --
 -- Indexes for dumped tables
@@ -110,7 +110,7 @@ ALTER TABLE `inventory`
 -- Indexes for table `kas_satibi`
 --
 ALTER TABLE `kas_satibi`
-  ADD PRIMARY KEY (`id_km`);
+  ADD PRIMARY KEY (`id_ks`);
 
 --
 -- Indexes for table `tb_pengguna`
@@ -132,7 +132,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `kas_satibi`
 --
 ALTER TABLE `kas_satibi`
-  MODIFY `id_km` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_ks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `tb_pengguna`

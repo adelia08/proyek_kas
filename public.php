@@ -157,7 +157,7 @@ include "inc/rupiah.php";
                 //Klik Halaman Home Pengguna
 
               case 'publikasi/kas/satibi':
-                include "bendahara/satibi/rekap_kas.php";
+                include "karyawan/satibi/rekap_kas.php";
                 break;
 
 
@@ -167,7 +167,7 @@ include "inc/rupiah.php";
 
                 //lap kas mas
               case 'lap_satibi':
-                include "bendahara/laporan/lap_mas.php";
+                include "karyawan/laporan/lap_mas.php";
                 break;
 
 

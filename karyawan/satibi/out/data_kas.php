@@ -46,7 +46,7 @@
 
 					<?php
 					$no = 1;
-					$sql = $koneksi->query("select * from kas_satibi where jenis='Keluar' order by tgl_km desc");
+					$sql = $koneksi->query("select * from kas_satibi where jenis='Keluar' order by tgl desc");
 					while ($data = $sql->fetch_assoc()) {
 					?>
 
@@ -55,7 +55,7 @@
 								<?php echo $no++; ?>
 							</td>
 							<td>
-								<?php $tgl = $data['tgl_km'];
+								<?php $tgl = $data['tgl'];
 								echo date("d/M/Y", strtotime($tgl)) ?>
 							</td>
 							<td>
@@ -71,12 +71,11 @@
 								<?php echo rupiah($data['total_keluar']); ?>
 							</td>
 							<td>
-								<a href="?page=o_edit_km&kode=<?php echo $data['id_km']; ?>" title="Ubah" class="btn btn-success btn-sm">
+								<a href="?page=o_edit_km&kode=<?php echo $data['id_ks']; ?>" title="Ubah" class="btn btn-success btn-sm">
 									<i class="fa fa-edit"></i>
 								</a>
-								<a href="?page=o_del_km&kode=<?php echo $data['id_km']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')" title="Hapus" class="btn btn-danger btn-sm">
-									<i class="fa fa-trash"></i>
-									</>
+
+								</>
 							</td>
 						</tr>
 
