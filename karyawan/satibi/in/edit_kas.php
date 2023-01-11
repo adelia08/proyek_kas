@@ -21,11 +21,18 @@ if (isset($_GET['kode'])) {
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Cabang</label>
 				<div class="col-sm-4">
-					<select name="cabang" id="cabang" class="form-control">
+					<select name="cabang" id="cabang" class="form-control" required>
 						<option>- Pilih -</option>
 						<option>Bekasi</option>
 						<option>Jakarta</option>
 					</select>
+				</div>
+			</div>
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">User</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="user" name="user" value="<?php echo $data_cek['user']; ?>" />
 				</div>
 			</div>
 
@@ -75,6 +82,7 @@ if (isset($_POST['Ubah'])) {
 
 	$sql_ubah = "UPDATE kas_satibi SET
         cabang='" . $_POST['cabang'] . "',
+		user='" . $_POST['user'] . "',
         masuk='" . $masuk_hasil . "',
         tgl='" . $_POST['tgl'] . "',
 		catatan='" . $_POST['catatan'] . "'

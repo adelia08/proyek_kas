@@ -34,6 +34,7 @@
 						<th>No</th>
 						<th>Tanggal</th>
 						<th>Cabang</th>
+						<th>User</th>
 						<th>Jumlah Pendapatan</th>
 						<th>Catatan</th>
 						<th>Aksi</th>
@@ -45,6 +46,7 @@
 					$no = 1;
 					$sql = $koneksi->query("select * from kas_satibi where jenis='Masuk' order by tgl desc");
 					while ($data = $sql->fetch_assoc()) {
+
 					?>
 
 						<tr>
@@ -58,7 +60,10 @@
 							<td>
 								<?php echo $data['cabang']; ?>
 							</td>
-							<td align="right">
+							<td>
+								<?php echo $data['user']; ?>
+							</td>
+							<td>
 								<?php echo rupiah($data['masuk']); ?>
 							</td>
 
@@ -72,11 +77,15 @@
 
 								</>
 							</td>
+
+
+						<tr>
 						</tr>
 
 					<?php
 					}
 					?>
+
 				</tbody>
 				</tfoot>
 			</table>

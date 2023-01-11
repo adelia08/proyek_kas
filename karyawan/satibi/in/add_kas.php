@@ -10,11 +10,19 @@
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Cabang</label>
 				<div class="col-sm-4">
-					<select name="cabang" id="cabang" class="form-control">
+					<select required name="cabang" id="cabang" class="form-control">
 						<option>- Pilih -</option>
 						<option>Bekasi</option>
 						<option>Jakarta</option>
 					</select>
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<label class="col-sm-2 col-form-label">User</label>
+				<div class="col-sm-8">
+					<input type="text" class="form-control" id="user" name="user" placeholder="user penginput" required>
 				</div>
 			</div>
 
@@ -31,8 +39,6 @@
 					<input type="date" class="form-control" id="tgl" name="tgl" required>
 				</div>
 			</div>
-
-
 
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Catatan</label>
@@ -62,9 +68,10 @@ if (isset($_POST['Simpan'])) {
 
 
 	//mulai proses simpan data
-	$sql_simpan = "INSERT INTO kas_satibi (tgl,cabang,catatan,masuk,keluar,jenis) VALUES (
+	$sql_simpan = "INSERT INTO kas_satibi (tgl,cabang,user,catatan,masuk,keluar,jenis) VALUES (
         '" . $_POST['tgl'] . "',
         '" . $_POST['cabang'] . "',
+		'" . $_POST['user'] . "',
 		'" . $_POST['catatan'] . "',
         '" . $masuk_hasil . "',
 

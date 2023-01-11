@@ -59,7 +59,7 @@ include "inc/koneksi.php";
 					<div class="row">
 						<div class="col-12">
 							<button type="submit" class="btn btn-primary btn-block btn-flat" name="btnLogin" title="Masuk Sistem">
-								<b>Masuk</b>
+								<b>Login</b>
 							</button>
 						</div>
 				</form>
