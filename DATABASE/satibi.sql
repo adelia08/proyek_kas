@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 23, 2022 at 07:11 PM
+-- Generation Time: Jan 11, 2023 at 08:06 AM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -54,24 +54,29 @@ CREATE TABLE `kas_satibi` (
   `id_ks` int(11) NOT NULL,
   `tgl` date NOT NULL,
   `cabang` varchar(200) NOT NULL,
+  `user` varchar(255) NOT NULL,
   `produk` varchar(255) NOT NULL,
   `jenis` enum('Masuk','Keluar') NOT NULL,
   `catatan` varchar(255) NOT NULL,
-  `masuk` int(11) NOT NULL,
-  `cost` int(11) NOT NULL,
-  `keluar` int(11) NOT NULL,
-  `total_keluar` int(255) NOT NULL,
-  `total_akhir` int(255) NOT NULL
+  `masuk` bigint(255) NOT NULL,
+  `cost` bigint(255) NOT NULL,
+  `keluar` bigint(255) NOT NULL,
+  `total_keluar` bigint(255) NOT NULL,
+  `total_akhir` bigint(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `kas_satibi`
 --
 
-INSERT INTO `kas_satibi` (`id_ks`, `tgl`, `cabang`, `produk`, `jenis`, `catatan`, `masuk`, `cost`, `keluar`, `total_keluar`, `total_akhir`) VALUES
-(34, '2022-12-01', '', 'tepung', 'Keluar', '', 0, 50000, 250000, 300000, -300000),
-(35, '2022-12-03', 'bekasi', '', 'Masuk', 'ok', 900000, 0, 0, 0, 900000),
-(36, '2022-12-03', 'jkt', '', 'Masuk', 'NOTE YA', 100000, 0, 0, 0, 100000);
+INSERT INTO `kas_satibi` (`id_ks`, `tgl`, `cabang`, `user`, `produk`, `jenis`, `catatan`, `masuk`, `cost`, `keluar`, `total_keluar`, `total_akhir`) VALUES
+(34, '2022-12-01', '', '', 'tepung', 'Keluar', '', 0, 50000, 250000, 300000, -300000),
+(35, '2022-12-03', 'bekasi', '', '', 'Masuk', 'ok', 900000, 0, 0, 0, 900000),
+(36, '2022-12-03', 'jkt', '', '', 'Masuk', 'NOTE YA', 100000, 0, 0, 0, 100000),
+(43, '2023-01-27', 'Bekasi', '', '', 'Masuk', 'aaaaaaaaa', 30000, 0, 0, 0, 0),
+(44, '2023-01-20', 'Jakarta', '', '', 'Masuk', 'ok', 30000, 0, 0, 0, 0),
+(45, '2023-01-28', 'Jakarta', 'elsa', '', 'Masuk', 'a', 20000, 0, 0, 0, 0),
+(46, '2023-02-03', '- Pilih -', 'elsa anaa', '', 'Masuk', 'elsa note', 400000, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -83,8 +88,8 @@ CREATE TABLE `tb_pengguna` (
   `id_pengguna` int(11) NOT NULL,
   `nama_pengguna` varchar(30) NOT NULL,
   `username` varchar(30) NOT NULL,
-  `password` varchar(30) NOT NULL,
-  `level` enum('Administrator','karyawan') NOT NULL
+  `password` varchar(60) NOT NULL,
+  `level` enum('Administrator','Karyawan') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -92,9 +97,10 @@ CREATE TABLE `tb_pengguna` (
 --
 
 INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password`, `level`) VALUES
-(1, 'Admin satibi', 'admin', 'admin', 'Administrator'),
-(2, 'User satibi', 'karyawan', 'karyawan', 'karyawan'),
-(3, 'adelia', 'adelia08', 'adelia', 'karyawan');
+(33, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator'),
+(34, 'karyawan', 'karyawan', '9e014682c94e0f2cc834bf7348bda428', 'Karyawan'),
+(35, 'adelia', 'adelia', '35dd12094c8ca8912833ec25522565bc', ''),
+(36, 'elsa', 'elsaana', 'd41d8cd98f00b204e9800998ecf8427e', '');
 
 --
 -- Indexes for dumped tables
@@ -132,13 +138,13 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `kas_satibi`
 --
 ALTER TABLE `kas_satibi`
-  MODIFY `id_ks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id_ks` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `tb_pengguna`
 --
 ALTER TABLE `tb_pengguna`
-  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_pengguna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
