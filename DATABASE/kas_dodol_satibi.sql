@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 11, 2023 at 08:06 AM
+-- Generation Time: Jan 12, 2023 at 12:10 PM
 -- Server version: 10.4.13-MariaDB
 -- PHP Version: 7.4.7
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `satibi`
+-- Database: `kas_dodol_satibi`
 --
 
 -- --------------------------------------------------------
@@ -53,7 +53,7 @@ INSERT INTO `inventory` (`no_produksi`, `tgl_input`, `nama_produk`, `jumlah_prod
 CREATE TABLE `kas_satibi` (
   `id_ks` int(11) NOT NULL,
   `tgl` date NOT NULL,
-  `cabang` varchar(200) NOT NULL,
+  `cabang` enum('Bekasi','Jakarta') NOT NULL,
   `user` varchar(255) NOT NULL,
   `produk` varchar(255) NOT NULL,
   `jenis` enum('Masuk','Keluar') NOT NULL,
@@ -71,12 +71,12 @@ CREATE TABLE `kas_satibi` (
 
 INSERT INTO `kas_satibi` (`id_ks`, `tgl`, `cabang`, `user`, `produk`, `jenis`, `catatan`, `masuk`, `cost`, `keluar`, `total_keluar`, `total_akhir`) VALUES
 (34, '2022-12-01', '', '', 'tepung', 'Keluar', '', 0, 50000, 250000, 300000, -300000),
-(35, '2022-12-03', 'bekasi', '', '', 'Masuk', 'ok', 900000, 0, 0, 0, 900000),
-(36, '2022-12-03', 'jkt', '', '', 'Masuk', 'NOTE YA', 100000, 0, 0, 0, 100000),
-(43, '2023-01-27', 'Bekasi', '', '', 'Masuk', 'aaaaaaaaa', 30000, 0, 0, 0, 0),
-(44, '2023-01-20', 'Jakarta', '', '', 'Masuk', 'ok', 30000, 0, 0, 0, 0),
-(45, '2023-01-28', 'Jakarta', 'elsa', '', 'Masuk', 'a', 20000, 0, 0, 0, 0),
-(46, '2023-02-03', '- Pilih -', 'elsa anaa', '', 'Masuk', 'elsa note', 400000, 0, 0, 0, 0);
+(35, '2022-12-03', 'Bekasi', '', '', 'Masuk', 'ok', 900000, 0, 0, 0, 900000),
+(36, '2022-12-03', 'Bekasi', '', '', 'Masuk', 'NOTE YA', 100000, 0, 0, 0, 100000),
+(43, '2023-01-27', 'Bekasi', '', '', 'Masuk', 'aaaaaaaaa', 30000, 0, 0, 0, 30000),
+(44, '2023-01-20', 'Jakarta', '', '', 'Masuk', 'ok', 30000, 0, 0, 0, 30000),
+(45, '2023-01-28', 'Jakarta', 'elsa', '', 'Masuk', 'a', 20000, 0, 0, 0, 20000),
+(46, '2023-02-03', '', 'elsa anaa', '', 'Masuk', 'elsa note', 400000, 0, 0, 0, 400000);
 
 -- --------------------------------------------------------
 
@@ -100,7 +100,7 @@ INSERT INTO `tb_pengguna` (`id_pengguna`, `nama_pengguna`, `username`, `password
 (33, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator'),
 (34, 'karyawan', 'karyawan', '9e014682c94e0f2cc834bf7348bda428', 'Karyawan'),
 (35, 'adelia', 'adelia', '35dd12094c8ca8912833ec25522565bc', ''),
-(36, 'elsa', 'elsaana', 'd41d8cd98f00b204e9800998ecf8427e', '');
+(36, 'elsa', 'elsaana', 'd41d8cd98f00b204e9800998ecf8427e', 'Administrator');
 
 --
 -- Indexes for dumped tables

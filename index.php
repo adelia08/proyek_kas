@@ -146,12 +146,7 @@ include "inc/rupiah.php";
 											<p>Pengeluaran </p>
 										</a>
 									</li>
-									<!-- <li class="nav-item">
-										<a href="?page=rekap_km" class="nav-link">
-											<i class="nav-icon far fa-circle text-primary"></i>
-											<p>Rekap Laporan</p>
-										</a>
-									</li> -->
+
 								</ul>
 							</li>
 
@@ -239,13 +234,6 @@ include "inc/rupiah.php";
 											<p>Pendapatan</p>
 										</a>
 									</li>
-
-									<li class="nav-item">
-										<a href="?page=rekap_km" class="nav-link">
-											<i class="nav-icon far fa-circle text-primary"></i>
-											<p>Rekap Keuangan</p>
-										</a>
-									</li>
 								</ul>
 							</li>
 
@@ -261,11 +249,18 @@ include "inc/rupiah.php";
 								</a>
 								<ul class="nav nav-treeview">
 									<li class="nav-item">
-										<a href="?page=lap_satibi" class="nav-link">
-											<i class="nav-icon far fa-circle text-warning"></i>
+										<a href="?page=rekap_km" class="nav-link">
+											<i class="nav-icon far fa-circle text-primary"></i>
 											<p>Rekap Keuangan</p>
 										</a>
 									</li>
+									<li class="nav-item">
+										<a href="?page=lap_satibi" class="nav-link">
+											<i class="nav-icon far fa-circle text-warning"></i>
+											<p>Cetak Rekap Kas</p>
+										</a>
+									</li>
+
 
 							</li>
 					</ul>

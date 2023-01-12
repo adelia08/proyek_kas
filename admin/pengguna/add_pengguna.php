@@ -32,7 +32,7 @@
           <select name="level" id="level" class="form-control">
             <option>- Pilih -</option>
             <option>Administrator</option>
-            <option>karyawan</option>
+            <option>Karyawan</option>
           </select>
         </div>
       </div>
